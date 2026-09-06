@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteShell, { EdDiscussionLogo } from "../components/site-shell";
+import EngineeringRoleGrid from "./engineering-role-grid";
 
 export const metadata: Metadata = {
   title: "Student Guide",
@@ -16,15 +17,6 @@ const engineeringCompassUrl =
   "https://active-learning-kyle.github.io/engineering-compass/";
 const engineeringCompassSourceUrl =
   "https://github.com/Active-Learning-Kyle/engineering-compass";
-
-const engineeringRoles = [
-  "Problem Framer",
-  "Project Navigator",
-  "Team Connector",
-  "Practical Builder",
-  "Prototype Explorer",
-  "Solution Storyteller",
-];
 
 const guideContents = [
   ["01", "Gate task", "The decision your team needs to make and the evidence required before review."],
@@ -106,14 +98,7 @@ export default function StudentGuidePage() {
               <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full border-[3rem] border-[#d7f43c]/10" aria-hidden="true" />
               <div className="relative">
                 <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#b8d8bf]">Six current ways of contributing</p>
-                <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                  {engineeringRoles.map((role, index) => (
-                    <div key={role} className="rounded-2xl border border-white/15 bg-white/[0.07] p-4 backdrop-blur-sm">
-                      <span className="text-[0.65rem] font-bold tracking-[0.16em] text-[#d7f43c]">0{index + 1}</span>
-                      <p className="mt-2 text-base font-semibold text-white">{role}</p>
-                    </div>
-                  ))}
-                </div>
+                <EngineeringRoleGrid />
                 <p className="mt-6 border-t border-white/15 pt-5 text-sm leading-7 text-white/72">
                   Use the result to start a team conversation or choose a growth goal. It is a reflection prompt—not a grade, ranking or fixed team role.
                 </p>

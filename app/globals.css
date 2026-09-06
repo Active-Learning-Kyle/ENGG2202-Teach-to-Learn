@@ -29,6 +29,134 @@ html {
   overflow-x: clip;
 }
 
+.compass-role-card {
+  position: relative;
+  min-height: 124px;
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 0.15);
+  border-radius: 1rem;
+  background: rgb(255 255 255 / 0.07);
+  color: white;
+  text-align: left;
+  isolation: isolate;
+  transition: transform 240ms ease, box-shadow 240ms ease;
+}
+
+.compass-role-card:is(:hover, :focus-visible) {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 32px -24px rgb(0 0 0 / 0.8);
+}
+
+.compass-role-default,
+.compass-role-reveal {
+  position: absolute;
+  inset: 0;
+  transition-property: opacity;
+  transition-duration: 1.7s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.compass-role-default {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 1rem;
+  opacity: 1;
+}
+
+.compass-role-default strong {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.compass-role-reveal {
+  background: var(--role-accent);
+  color: var(--role-ink);
+  opacity: 0;
+}
+
+.compass-role-reveal::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, rgb(9 28 17 / 0.18) 0 54%, rgb(255 255 255 / 0.78) 100%);
+}
+
+.compass-role-card.is-revealed .compass-role-default {
+  opacity: 0;
+}
+
+.compass-role-card.is-revealed .compass-role-reveal {
+  opacity: 1;
+}
+
+.compass-role-card:is(:hover, :focus-visible) .compass-role-default,
+.compass-role-card:is(:hover, :focus-visible) .compass-role-reveal {
+  transition-duration: 220ms;
+}
+
+.compass-role-copy {
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: 2;
+  display: flex;
+  width: 68%;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.8rem 0.9rem;
+}
+
+.compass-role-copy > span {
+  color: #d7f43c;
+  font-size: 0.54rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.compass-role-copy strong {
+  margin-top: 0.28rem;
+  font-size: 0.98rem;
+  line-height: 1.1;
+}
+
+.compass-role-copy b {
+  margin-top: 0.38rem;
+  font-size: 0.58rem;
+  line-height: 1.25;
+}
+
+.compass-role-copy small {
+  display: -webkit-box;
+  margin-top: 0.35rem;
+  overflow: hidden;
+  color: rgb(255 255 255 / 0.78);
+  font-size: 0.57rem;
+  line-height: 1.35;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.compass-role-character {
+  position: absolute;
+  right: -1%;
+  bottom: 0;
+  width: 47%;
+  height: 100%;
+  object-fit: contain;
+  object-position: right bottom;
+  filter: saturate(0.82) contrast(0.96);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .compass-role-default,
+  .compass-role-reveal,
+  .compass-role-card {
+    transition-duration: 0.01ms !important;
+  }
+}
+
 @keyframes hero-drift {
   0%, 100% {
     transform: scale(1.02) translate3d(0, 0, 0);
