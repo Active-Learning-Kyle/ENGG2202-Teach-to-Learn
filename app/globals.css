@@ -59,10 +59,17 @@ html {
 .compass-role-default {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 0.45rem;
-  padding: 1rem;
+  justify-content: flex-start;
+  gap: 0.28rem;
+  padding: 0.8rem 0.9rem;
   opacity: 1;
+}
+
+.compass-role-default > span {
+  color: #d7f43c;
+  font-size: 0.54rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
 }
 
 .compass-role-default strong {
@@ -104,7 +111,7 @@ html {
   display: flex;
   width: 68%;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 0.8rem 0.9rem;
 }
 

@@ -115,7 +115,7 @@ export default function EngineeringRoleGrid() {
             onBlur={() => setHoveredIndex(null)}
           >
             <span className="compass-role-default" aria-hidden="true">
-              <span className="text-[0.65rem] font-bold tracking-[0.16em] text-[#d7f43c]">0{index + 1}</span>
+              <span>{role.code} · ENGINEERING ROLE</span>
               <strong>{role.name}</strong>
             </span>
             <span className="compass-role-reveal" aria-hidden="true">
