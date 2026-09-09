@@ -56,6 +56,8 @@ const greenTechnologyReading = [
     source: "HKU Innovation Academy",
     href: "https://innoacademy.engg.hku.hk/matchbox/",
     accent: "bg-[#c8f06a]",
+    image: "/images/teach-to-learn/green-tech-matchbox.jpg",
+    imagePosition: "object-center",
   },
   {
     category: "Water × energy",
@@ -65,6 +67,8 @@ const greenTechnologyReading = [
     source: "HKU Innovation Wing",
     href: "https://innowings.engg.hku.hk/greenhydrogen/",
     accent: "bg-[#70c7b4]",
+    image: "/images/teach-to-learn/green-tech-hydrogen.jpg",
+    imagePosition: "object-center",
   },
   {
     category: "Solar materials",
@@ -74,6 +78,8 @@ const greenTechnologyReading = [
     source: "HKU Engineering Newsletter",
     href: "https://engg.hku.hk/Portals/0/adam/News%20and%20Events/4fDJg5_Yq0-mgFGRpb5gmA/Link/HKU%20Engineering%20Newsletter%20-%20Summer%202025.pdf",
     accent: "bg-[#f5c04d]",
+    image: "/images/teach-to-learn/solar-weather-station-cover.png",
+    imagePosition: "object-center",
   },
 ];
 
@@ -207,19 +213,34 @@ export default function SustainableDevelopmentGoalsPage() {
 
             <div className="mt-10 grid gap-4 lg:grid-cols-3">
               {greenTechnologyReading.map((item) => (
-                <a key={item.title} href={item.href} target="_blank" rel="noopener noreferrer" className="group flex min-h-[23rem] flex-col overflow-hidden rounded-[1.7rem] border border-white/14 bg-white/[0.065] transition hover:-translate-y-1 hover:bg-white/[0.1]">
-                  <div className={`h-2 ${item.accent}`} />
-                  <div className="flex flex-1 flex-col p-6 sm:p-7">
-                    <div className="flex items-center justify-between gap-4 text-[0.65rem] font-bold uppercase tracking-[0.15em] text-white/55">
+                <a key={item.title} href={item.href} target="_blank" rel="noopener noreferrer" className="group relative flex min-h-[28rem] flex-col overflow-hidden rounded-[1.7rem] border border-white/18 bg-[#163b27] shadow-[0_26px_60px_-36px_rgba(0,0,0,0.8)] transition duration-500 hover:-translate-y-1.5 hover:border-white/35 hover:shadow-[0_34px_72px_-34px_rgba(0,0,0,0.9)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d7f43c]">
+                  <Image
+                    src={imagePath(item.image)}
+                    alt=""
+                    fill
+                    sizes="(min-width: 1024px) 30vw, 100vw"
+                    className={`object-cover ${item.imagePosition} transition duration-700 ease-out group-hover:scale-[1.045]`}
+                    aria-hidden="true"
+                  />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,24,14,0.08)_0%,rgba(6,24,14,0.28)_35%,rgba(6,24,14,0.95)_72%,rgba(6,24,14,1)_100%)] transition duration-500 group-hover:bg-[linear-gradient(180deg,rgba(6,24,14,0.02)_0%,rgba(6,24,14,0.2)_35%,rgba(6,24,14,0.92)_72%,rgba(6,24,14,0.99)_100%)]" />
+                  <div className={`absolute inset-x-0 top-0 h-2 ${item.accent}`} />
+                  <div className="relative flex flex-1 flex-col p-6 sm:p-7">
+                    <div className="flex items-center justify-between gap-4 text-[0.65rem] font-bold uppercase tracking-[0.15em] text-white/80 drop-shadow-sm">
                       <span>{item.category}</span>
                       <span>{item.date}</span>
                     </div>
-                    <h3 className="mt-8 text-2xl font-semibold leading-8 tracking-[-0.03em]">{item.title}</h3>
-                    <p className="mt-4 text-sm leading-7 text-white/68">{item.copy}</p>
-                    <span className="mt-auto inline-flex items-center justify-between gap-3 pt-8 text-xs font-bold text-[#d7f43c]">
-                      {item.source}
-                      <ArrowIcon />
-                    </span>
+                    <div className="mt-auto pt-28">
+                      <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-[#d7f43c]">A project question worth opening</p>
+                      <h3 className="mt-3 text-2xl font-semibold leading-8 tracking-[-0.03em] text-white drop-shadow-sm">{item.title}</h3>
+                      <p className="mt-3 text-sm leading-6 text-white/76">{item.copy}</p>
+                      <span className="mt-6 inline-flex w-full items-center justify-between gap-3 border-t border-white/20 pt-5 text-xs font-bold text-white">
+                        <span>{item.source}</span>
+                        <span className="inline-flex items-center gap-2 text-[#d7f43c]">
+                          Open the story
+                          <ArrowIcon />
+                        </span>
+                      </span>
+                    </div>
                   </div>
                 </a>
               ))}
