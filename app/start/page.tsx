@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import CandidateFilter from "./candidate-filter";
 import SiteShell from "../components/site-shell";
 
 export const metadata: Metadata = {
@@ -21,7 +20,7 @@ const independenceSteps = [
     copy:
       "A project already provides most of the code, CAD, wiring, BOM or build instructions. Your job is to make it work, debug it, understand it and verify what it does.",
     actions: "Build → Debug → Understand → Verify",
-    width: "lg:w-full",
+    width: "lg:w-[76%]",
     offset: "lg:ml-0",
   },
   {
@@ -31,7 +30,7 @@ const independenceSteps = [
     copy:
       "A useful reference exists, but some important pieces are missing. You may need to create code, CAD, electronics, documentation or integration work yourself.",
     actions: "Find → Fill gaps → Integrate → Explain",
-    width: "lg:w-[94%]",
+    width: "lg:w-[82%]",
     offset: "lg:ml-[6%]",
   },
   {
@@ -51,7 +50,7 @@ const independenceSteps = [
     copy:
       "Begin mainly from a problem, need or broad concept. Your team researches existing work, defines requirements, selects the architecture, integrates the system and iterates.",
     actions: "Define → Research → Design → Integrate → Iterate",
-    width: "lg:w-[82%]",
+    width: "lg:w-[94%]",
     offset: "lg:ml-[18%]",
   },
 ];
@@ -60,10 +59,10 @@ const projectResources = [
   {
     name: "GitHub",
     label: "Open-source repositories",
-    href: "https://github.com/topics/open-source-hardware",
+    href: "https://github.com/topics",
     copy:
       "Best for real repositories: code, version history, issues, documentation, licences and sometimes CAD or BOM files.",
-    tag: "Code & files",
+    tag: "Best overall",
   },
   {
     name: "Hackster.io",
@@ -79,7 +78,7 @@ const projectResources = [
     href: "https://projecthub.arduino.cc/",
     copy:
       "A good place to find documented projects with components, wiring, code and step-by-step build information.",
-    tag: "Build tutorials",
+    tag: "Easy to start",
   },
   {
     name: "Hackaday.io",
@@ -87,12 +86,12 @@ const projectResources = [
     href: "https://hackaday.io/projects",
     copy:
       "Useful for more ambitious projects, development logs, prototypes and engineering experiments.",
-    tag: "Development logs",
+    tag: "More advanced",
   },
   {
     name: "OSHWA Directory",
     label: "Certified open-source hardware",
-    href: "https://certification.oshwa.org/list.html",
+    href: "https://certification.oshwa.org/directory.html",
     copy:
       "Search documented open-source hardware projects by category, including electronics, robotics, environmental work and 3D printing.",
     tag: "Open hardware",
@@ -164,7 +163,7 @@ function ExternalArrow() {
 export default function StartProjectPage() {
   return (
     <SiteShell>
-      <main id="main-content">
+      <main>
         <section className="overflow-hidden bg-[#0f3420] px-5 py-20 text-white sm:px-8 lg:px-10 lg:py-28">
           <div className="mx-auto grid max-w-[90rem] gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-end">
             <div>
@@ -195,7 +194,6 @@ export default function StartProjectPage() {
                 >
                   Choose a starting point <ArrowIcon />
                 </a>
-                <a href="#class-task" className="inline-flex items-center rounded-full border border-white/30 px-5 py-3 text-sm font-bold">Your 10-minute class task ↓</a>
               </div>
             </div>
           </div>
@@ -209,7 +207,7 @@ export default function StartProjectPage() {
             <div className="grid gap-7 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
               <div>
                 <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#57745e]">
-                  Project Independence Framework
+                  Project Independence Ladder
                 </p>
                 <h2 className="mt-4 text-4xl font-semibold tracking-[-0.045em] text-[#143421] sm:text-5xl">
                   Start with the amount of support you need.
@@ -226,11 +224,11 @@ export default function StartProjectPage() {
 
             <div className="mt-10 rounded-[2rem] border border-[#cadbcd] bg-white p-5 sm:p-8 lg:p-10">
               <div className="grid gap-3">
-                {[...independenceSteps].reverse().map((item) => (
+                {independenceSteps.map((item, index) => (
                   <article
                     key={item.step}
                     className={`relative overflow-hidden rounded-[1.45rem] border p-5 sm:p-6 ${item.width} ${item.offset} ${
-                      item.step === "04"
+                      index === independenceSteps.length - 1
                         ? "border-[#b9d72e] bg-[#d7f43c]"
                         : "border-[#d5e2d7] bg-[#f8fbf7]"
                     }`}
@@ -238,7 +236,7 @@ export default function StartProjectPage() {
                     <div className="grid gap-4 sm:grid-cols-[auto_1fr] sm:items-start">
                       <span
                         className={`flex h-11 w-11 items-center justify-center rounded-full text-xs font-bold ${
-                          item.step === "04"
+                          index === independenceSteps.length - 1
                             ? "bg-[#173f28] text-white"
                             : "bg-[#e6f0e7] text-[#52705d]"
                         }`}
@@ -272,8 +270,8 @@ export default function StartProjectPage() {
                     Moving upward
                   </p>
                   <p className="mt-2 text-sm leading-7 text-white/78">
-                    ↑ Student ownership increases. Provided scaffolding decreases.
-                    Guided Reproduction is the foundation: build, debug, understand and verify.
+                    Student engineering ownership increases as fewer design
+                    decisions are provided.
                   </p>
                 </div>
                 <div className="rounded-2xl bg-[#eef6ec] p-5 text-[#244a30]">
@@ -328,7 +326,7 @@ export default function StartProjectPage() {
               <p className="max-w-2xl text-base leading-8 text-[#526858] lg:justify-self-end">
                 Use these platforms to find projects, repositories and reference
                 designs. Open the original source and inspect what is actually
-                available before deciding. These resources are free to browse; public does not always mean open-source. Check each project’s licence, source files and documentation. Hardware and some services may cost money.
+                available before deciding.
               </p>
             </div>
 
@@ -366,14 +364,12 @@ export default function StartProjectPage() {
               </p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {searchIdeas.map((item) => (
-                  <a
-                    href={`https://github.com/search?q=${encodeURIComponent(item)}&type=repositories`}
-                    target="_blank" rel="noopener noreferrer"
+                  <span
                     key={item}
                     className="rounded-full border border-[#c8d8ca] bg-white px-3.5 py-2 text-sm font-semibold text-[#31573d]"
                   >
-                    {item} ↗
-                  </a>
+                    {item}
+                  </span>
                 ))}
               </div>
               <p className="mt-4 text-sm leading-7 text-[#526858]">
@@ -385,7 +381,6 @@ export default function StartProjectPage() {
               </p>
             </div>
 
-            <h3 className="mt-8 text-xl font-semibold text-[#173823]">Learning resources · fill a skills gap</h3>
             <div className="mt-6 grid gap-4 md:grid-cols-2">
               {learningResources.map((resource) => (
                 <a
@@ -408,7 +403,7 @@ export default function StartProjectPage() {
           </div>
         </section>
 
-        <section id="candidate-filter" className="scroll-mt-24 border-y border-[#d7e4d9] bg-[#eef6ec] px-5 py-16 sm:px-8 lg:px-10">
+        <section className="border-y border-[#d7e4d9] bg-[#eef6ec] px-5 py-16 sm:px-8 lg:px-10">
           <div className="mx-auto max-w-[90rem]">
             <div className="grid gap-7 lg:grid-cols-[0.7fr_1.3fr] lg:items-start">
               <div>
@@ -419,7 +414,22 @@ export default function StartProjectPage() {
                   Four questions are enough to start.
                 </h2>
               </div>
-              <CandidateFilter />
+              <div className="grid gap-3 sm:grid-cols-2">
+                {[
+                  ["Buildable", "Can we realistically build a first version with our time, budget and facilities?"],
+                  ["Understandable", "Is there enough information for us to learn how the system works?"],
+                  ["Modifiable", "Is there meaningful engineering work we can complete, change or improve?"],
+                  ["Testable", "Can we collect evidence to judge whether our work actually works?"],
+                ].map(([title, copy]) => (
+                  <article
+                    key={title}
+                    className="rounded-[1.45rem] border border-[#d4e1d6] bg-white p-5"
+                  >
+                    <h3 className="text-lg font-semibold text-[#173823]">{title}</h3>
+                    <p className="mt-2 text-sm leading-7 text-[#526858]">{copy}</p>
+                  </article>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -428,7 +438,7 @@ export default function StartProjectPage() {
           <div className="mx-auto grid max-w-[90rem] gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#b9d8bf]">
-                Optional · AI assistance
+                Stuck? Use AI as a thinking assistant
               </p>
               <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em]">
                 Ask a better next question.
@@ -436,7 +446,7 @@ export default function StartProjectPage() {
               <p className="mt-5 text-sm leading-7 text-white/72">
                 AI can help you search, explain, challenge assumptions and
                 troubleshoot. It does not replace checking the original project,
-                datasheet, experiment or safety requirement. Verify suggested links and claims; record how you used AI and what you checked yourself. No paid AI tool is required.
+                datasheet, experiment or safety requirement.
               </p>
               <div className="mt-6 flex flex-wrap gap-2">
                 {aiTools.map((tool) => (
@@ -474,25 +484,24 @@ export default function StartProjectPage() {
           </div>
         </section>
 
-        <section id="class-task" className="scroll-mt-24 bg-white px-5 py-16 sm:px-8 lg:px-10 lg:py-20">
+        <section className="bg-white px-5 py-16 sm:px-8 lg:px-10 lg:py-20">
           <div className="mx-auto max-w-[90rem] rounded-[2rem] border border-[#cadbcd] bg-[#f7faf6] p-7 sm:p-9 lg:p-10">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#57745e]">
-              Class task · 10 minutes to get started
+              Bring one candidate forward
             </p>
-            <p className="mt-4 max-w-3xl text-base leading-8 text-[#526858]">Spend 2 minutes choosing an interest, 5 minutes inspecting a source, and 3 minutes recording your candidate. Bring your notes to the class discussion; uncertainty is welcome.</p>
             <div className="mt-5 grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
               <div>
                 <h2 className="text-3xl font-semibold tracking-[-0.04em] text-[#143421]">
-                  Bring one candidate + a preliminary BOM.
+                  Before the next project discussion, choose one project your team would seriously consider building.
                 </h2>
               </div>
               <div className="grid gap-3 text-sm leading-7 text-[#526858] sm:grid-cols-2">
                 {[
                   "Project link and what it does",
                   "Why your team is interested",
-                  "Starting point + code, CAD, wiring, instructions and licence already available",
+                  "What engineering work already exists",
                   "What you would need to build",
-                  "Preliminary bill of materials (BOM): part, quantity, estimated unit cost, source and availability",
+                  "Main components / preliminary BOM",
                   "What you might complete, change or improve",
                   "Biggest uncertainty or risk",
                   "The smallest first version you could try",
@@ -504,7 +513,6 @@ export default function StartProjectPage() {
                 ))}
               </div>
             </div>
-            <p className="mt-6 text-sm leading-7 text-[#526858]">For the BOM, include delivery and reused parts, state the currency, and mark unknown prices as estimates. A first list is enough; you do not need to buy anything for this task.</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/engg2202"

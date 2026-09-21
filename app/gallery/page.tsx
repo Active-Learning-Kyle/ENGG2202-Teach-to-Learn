@@ -37,7 +37,7 @@ function ArrowIcon() {
 export default function StudentProjectsPage() {
   return (
     <SiteShell>
-      <main id="main-content">
+      <main>
         <section className="overflow-hidden border-b border-[#d9e6db] bg-white">
           <div className="mx-auto grid max-w-[90rem] gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-10 lg:py-24">
             <div className="max-w-3xl">
