@@ -40,7 +40,7 @@ const projectPlatforms = [
     category: "Hardware & IoT projects",
     description: "Explore practical electronics, embedded systems and IoT builds with parts, code and instructions.",
     href: "https://www.hackster.io/projects",
-    logo: "/images/project-platforms/hackster.svg",
+    logo: "/images/project-platforms/hackster.png",
     background: "linear-gradient(135deg, #075985 0%, #0ea5e9 100%)",
   },
   {
@@ -48,7 +48,7 @@ const projectPlatforms = [
     category: "Arduino project library",
     description: "Find accessible builds with components, circuit diagrams, code and step-by-step guidance.",
     href: "https://projecthub.arduino.cc/",
-    logo: "/images/project-platforms/arduino.svg",
+    logo: "/images/project-platforms/arduino.ico",
     background: "linear-gradient(135deg, #006b73 0%, #00979d 100%)",
   },
   {
@@ -56,7 +56,7 @@ const projectPlatforms = [
     category: "Project logs & prototypes",
     description: "Browse ambitious maker projects, engineering experiments and detailed development logs.",
     href: "https://hackaday.io/projects",
-    logo: "/images/project-platforms/hackaday.svg",
+    logo: "/images/project-platforms/hackaday.png",
     background: "linear-gradient(135deg, #1f2937 0%, #dc2626 100%)",
   },
   {
@@ -64,7 +64,7 @@ const projectPlatforms = [
     category: "Certified open-source hardware",
     description: "Search hardware projects whose source files and open-source documentation have been certified.",
     href: "https://certification.oshwa.org/list.html",
-    logo: "/images/project-platforms/oshwa.svg",
+    logo: "/images/project-platforms/oshwa.png",
     background: "linear-gradient(135deg, #9a3412 0%, #f97316 100%)",
   },
   {
@@ -72,7 +72,7 @@ const projectPlatforms = [
     category: "Electronics project guides",
     description: "Use clear tutorials for sensors, microcontrollers, Raspberry Pi and electronics prototyping.",
     href: "https://learn.adafruit.com/",
-    logo: "/images/project-platforms/adafruit.svg",
+    logo: "/images/project-platforms/adafruit.ico",
     background: "linear-gradient(135deg, #312e81 0%, #7c3aed 100%)",
   },
   {
@@ -80,8 +80,16 @@ const projectPlatforms = [
     category: "Tutorials & hookup guides",
     description: "Learn how to use sensors, electronics and communication modules through practical examples.",
     href: "https://learn.sparkfun.com/tutorials/",
-    logo: "/images/project-platforms/sparkfun.svg",
+    logo: "/images/project-platforms/sparkfun.ico",
     background: "linear-gradient(135deg, #9f1239 0%, #e11d48 100%)",
+  },
+  {
+    name: "Instructables",
+    category: "Project ideas & build guides",
+    description: "Browse a large collection of hands-on builds for electronics, Arduino, fabrication and mechanisms.",
+    href: "https://www.instructables.com/Arduino-Projects/",
+    logo: "/images/project-platforms/instructables.png",
+    background: "linear-gradient(135deg, #b45309 0%, #f59e0b 100%)",
   },
 ];
 
@@ -177,14 +185,14 @@ export default function StudentProjectsPage() {
               </p>
             </div>
 
-            <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
               {projectPlatforms.map((platform) => (
                 <a
                   key={platform.name}
                   href={platform.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex min-h-[22rem] flex-col overflow-hidden rounded-[1.55rem] border border-[#cbd9cd] bg-white shadow-[0_20px_55px_-44px_rgba(15,60,32,0.5)] transition duration-300 hover:-translate-y-1 hover:border-[#8eb095] hover:shadow-[0_26px_65px_-40px_rgba(15,60,32,0.5)] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#318248] lg:last:col-start-2"
+                  className="group flex min-h-[22rem] flex-col overflow-hidden rounded-[1.55rem] border border-[#cbd9cd] bg-white shadow-[0_20px_55px_-44px_rgba(15,60,32,0.5)] transition duration-300 hover:-translate-y-1 hover:border-[#8eb095] hover:shadow-[0_26px_65px_-40px_rgba(15,60,32,0.5)] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#318248]"
                 >
                   <div
                     className="relative flex h-40 items-center justify-center overflow-hidden p-9"
@@ -192,14 +200,16 @@ export default function StudentProjectsPage() {
                   >
                     <div className="absolute -right-8 -top-12 h-36 w-36 rounded-full border border-white/15" aria-hidden="true" />
                     <div className="absolute -bottom-16 -left-8 h-44 w-44 rounded-full border border-white/10" aria-hidden="true" />
-                    <Image
-                      src={imagePath(platform.logo)}
-                      alt={`${platform.name} logo`}
-                      width={170}
-                      height={64}
-                      sizes="170px"
-                      className="relative h-14 w-auto max-w-[11rem] object-contain transition duration-300 group-hover:scale-105"
-                    />
+                    <div className="relative flex h-24 w-24 items-center justify-center rounded-[1.4rem] border border-white/60 bg-white p-4 shadow-[0_18px_36px_-20px_rgba(0,0,0,0.65)] transition duration-300 group-hover:scale-105">
+                      <Image
+                        src={imagePath(platform.logo)}
+                        alt={`${platform.name} official icon`}
+                        width={72}
+                        height={72}
+                        sizes="72px"
+                        className="h-16 w-16 object-contain"
+                      />
+                    </div>
                   </div>
                   <div className="flex flex-1 flex-col p-6 sm:p-7">
                     <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#66806d]">{platform.category}</p>
