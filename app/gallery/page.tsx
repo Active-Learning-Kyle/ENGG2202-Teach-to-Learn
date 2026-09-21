@@ -26,6 +26,65 @@ const projects = [
   },
 ];
 
+const projectPlatforms = [
+  {
+    name: "GitHub",
+    category: "Open-source repositories",
+    description: "Search real project repositories with code, documentation, CAD files and development history.",
+    href: "https://github.com/topics/open-source-hardware",
+    logo: "/images/project-platforms/github.svg",
+    background: "linear-gradient(135deg, #111827 0%, #334155 100%)",
+  },
+  {
+    name: "Hackster.io",
+    category: "Hardware & IoT projects",
+    description: "Explore practical electronics, embedded systems and IoT builds with parts, code and instructions.",
+    href: "https://www.hackster.io/projects",
+    logo: "/images/project-platforms/hackster.svg",
+    background: "linear-gradient(135deg, #075985 0%, #0ea5e9 100%)",
+  },
+  {
+    name: "Arduino Project Hub",
+    category: "Arduino project library",
+    description: "Find accessible builds with components, circuit diagrams, code and step-by-step guidance.",
+    href: "https://projecthub.arduino.cc/",
+    logo: "/images/project-platforms/arduino.svg",
+    background: "linear-gradient(135deg, #006b73 0%, #00979d 100%)",
+  },
+  {
+    name: "Hackaday.io",
+    category: "Project logs & prototypes",
+    description: "Browse ambitious maker projects, engineering experiments and detailed development logs.",
+    href: "https://hackaday.io/projects",
+    logo: "/images/project-platforms/hackaday.svg",
+    background: "linear-gradient(135deg, #1f2937 0%, #dc2626 100%)",
+  },
+  {
+    name: "OSHWA",
+    category: "Certified open-source hardware",
+    description: "Search hardware projects whose source files and open-source documentation have been certified.",
+    href: "https://certification.oshwa.org/list.html",
+    logo: "/images/project-platforms/oshwa.svg",
+    background: "linear-gradient(135deg, #9a3412 0%, #f97316 100%)",
+  },
+  {
+    name: "Adafruit Learning System",
+    category: "Electronics project guides",
+    description: "Use clear tutorials for sensors, microcontrollers, Raspberry Pi and electronics prototyping.",
+    href: "https://learn.adafruit.com/",
+    logo: "/images/project-platforms/adafruit.svg",
+    background: "linear-gradient(135deg, #312e81 0%, #7c3aed 100%)",
+  },
+  {
+    name: "SparkFun Learn",
+    category: "Tutorials & hookup guides",
+    description: "Learn how to use sensors, electronics and communication modules through practical examples.",
+    href: "https://learn.sparkfun.com/tutorials/",
+    logo: "/images/project-platforms/sparkfun.svg",
+    background: "linear-gradient(135deg, #9f1239 0%, #e11d48 100%)",
+  },
+];
+
 function ArrowIcon() {
   return (
     <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-4 w-4" aria-hidden="true">
@@ -102,6 +161,57 @@ export default function StudentProjectsPage() {
                   A project appears in the directory when its repository and release materials are ready for public use.
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="project-resources" className="scroll-mt-24 border-t border-[#d5e2d7] bg-[#edf4ed] px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
+          <div className="mx-auto max-w-[90rem]">
+            <div className="max-w-3xl">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#57735e]">Find a project to explore</p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-[-0.035em] text-[#153321] sm:text-4xl">
+                Open-source project platforms
+              </h2>
+              <p className="mt-4 text-base leading-8 text-[#526a58]">
+                Browse these libraries to find an existing project you can build, understand or adapt.
+              </p>
+            </div>
+
+            <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {projectPlatforms.map((platform) => (
+                <a
+                  key={platform.name}
+                  href={platform.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex min-h-[22rem] flex-col overflow-hidden rounded-[1.55rem] border border-[#cbd9cd] bg-white shadow-[0_20px_55px_-44px_rgba(15,60,32,0.5)] transition duration-300 hover:-translate-y-1 hover:border-[#8eb095] hover:shadow-[0_26px_65px_-40px_rgba(15,60,32,0.5)] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#318248] lg:last:col-start-2"
+                >
+                  <div
+                    className="relative flex h-40 items-center justify-center overflow-hidden p-9"
+                    style={{ background: platform.background }}
+                  >
+                    <div className="absolute -right-8 -top-12 h-36 w-36 rounded-full border border-white/15" aria-hidden="true" />
+                    <div className="absolute -bottom-16 -left-8 h-44 w-44 rounded-full border border-white/10" aria-hidden="true" />
+                    <Image
+                      src={imagePath(platform.logo)}
+                      alt={`${platform.name} logo`}
+                      width={170}
+                      height={64}
+                      sizes="170px"
+                      className="relative h-14 w-auto max-w-[11rem] object-contain transition duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col p-6 sm:p-7">
+                    <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#66806d]">{platform.category}</p>
+                    <h3 className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-[#173823]">{platform.name}</h3>
+                    <p className="mt-3 text-sm leading-7 text-[#526a58]">{platform.description}</p>
+                    <span className="mt-auto inline-flex items-center gap-2 pt-7 text-sm font-bold text-[#226439]">
+                      Explore projects
+                      <ArrowIcon />
+                    </span>
+                  </div>
+                </a>
+              ))}
             </div>
           </div>
         </section>
