@@ -45,6 +45,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
 
   return (
     <div className="min-h-screen bg-[#f7faf6] text-[#102319]">
+      <a href="#main-content" className="fixed left-4 top-3 z-[100] -translate-y-24 rounded-full bg-[#d7f43c] px-5 py-3 font-bold focus:translate-y-0">Skip to main content</a>
       <header className="sticky top-0 z-50 border-b border-[#dce8df] bg-[#fbfdfb]/95 backdrop-blur-xl">
         <div className="mx-auto flex max-w-[120rem] items-center gap-4 px-5 py-3 sm:px-8 lg:px-10">
           <Link href="/" className="flex shrink-0 items-center gap-2" aria-label="ENGG2202 Engineering Challenges II home">
@@ -77,7 +78,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
             </span>
           </Link>
 
-          <nav className="ml-auto hidden items-center min-[1680px]:flex" aria-label="Primary navigation">
+          <nav className="ml-auto hidden items-center min-[1440px]:flex" aria-label="Primary navigation">
             <ul className="flex items-center gap-1 whitespace-nowrap text-sm font-semibold">
               {navigation.map((item) => {
                 const isActive = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
@@ -125,7 +126,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen((open) => !open)}
-            className="ml-auto inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#b9cfbf] text-[#214b31] transition hover:bg-white min-[1680px]:hidden"
+            className="ml-auto inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#b9cfbf] text-[#214b31] transition hover:bg-white min-[1440px]:hidden"
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-nav-menu"
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
@@ -143,12 +144,12 @@ export default function SiteShell({ children }: { children: ReactNode }) {
         </div>
 
         {isMobileMenuOpen ? (
-          <div id="mobile-nav-menu" className="border-t border-[#dce8df] bg-[#fbfdfb] px-5 py-4 sm:px-8 min-[1680px]:hidden">
+          <div id="mobile-nav-menu" className="border-t border-[#dce8df] bg-[#fbfdfb] px-5 py-4 sm:px-8 min-[1440px]:hidden">
             <nav aria-label="Mobile navigation">
               <ul className="grid gap-1">
                 {navigation.map((item) => (
                   <li key={item.href}>
-                    <Link href={item.href} onClick={() => setIsMobileMenuOpen(false)} className="block rounded-xl px-3 py-3 text-sm font-semibold text-[#2d563a] hover:bg-[#e9f3ea]">
+                    <Link href={item.href} aria-current={(item.href === "/" ? pathname === "/" : pathname.startsWith(item.href)) ? "page" : undefined} onClick={() => setIsMobileMenuOpen(false)} className="block rounded-xl px-3 py-3 text-sm font-semibold text-[#2d563a] hover:bg-[#e9f3ea]">
                       {item.label}
                     </Link>
                   </li>

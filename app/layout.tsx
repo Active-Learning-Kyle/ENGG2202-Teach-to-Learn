@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: "%s | ENGG2202 Engineering Challenges II",
   },
   description:
-    "The ENGG2202 Engineering Challenges II course hub for HKU students: Green Technology projects, six project Gates, student guidance, assessment and open engineering examples.",
+    "The ENGG2202 Engineering Challenges II course hub for HKU students: Green Technology projects, six project Checkpoints, student guidance, assessment and open engineering examples.",
   keywords: [
     "ENGG2202",
     "Teach to Learn",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     siteName: "ENGG2202 Engineering Challenges II",
     title: "ENGG2202 Engineering Challenges II | HKU Engineering",
     description:
-      "Green Technology projects, six project Gates, student guidance, assessment and open engineering examples for ENGG2202 at HKU.",
+      "Green Technology projects, six project Checkpoints, student guidance, assessment and open engineering examples for ENGG2202 at HKU.",
   },
   icons: {
     icon: imagePath("/icon.png"),
@@ -58,7 +58,7 @@ export default function RootLayout({
               "@type": "Course",
               name: "ENGG2202 Engineering Challenges II",
               description:
-                "An HKU Engineering course in which students develop Green Technology projects through six evidence-led project Gates.",
+                "An HKU Engineering course in which students develop Green Technology projects through six evidence-led project Checkpoints.",
               url: `${siteUrl}/`,
               provider: {
                 "@type": "CollegeOrUniversity",

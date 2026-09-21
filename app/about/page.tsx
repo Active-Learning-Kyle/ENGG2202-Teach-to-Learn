@@ -3,10 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import SiteShell from "../components/site-shell";
 import { imagePath } from "../lib/image-path";
-import { AssessmentInformation, SemesterMeetings } from "./course-information";
+import { SemesterMeetings } from "./course-information";
 
 export const metadata: Metadata = {
-  title: "Course Information",
+  title: "About",
   description:
     "ENGG2202 meeting dates, assessment structure and written report requirements.",
   alternates: { canonical: "https://active-learning-kyle.github.io/ENGG2202-Teach-to-Learn/about/" },
@@ -23,7 +23,7 @@ function ArrowIcon() {
 export default function AboutPage() {
   return (
     <SiteShell>
-      <main>
+      <main id="main-content">
         <section className="overflow-hidden border-b border-[#d8e4d9] bg-[#eef6ec] px-5 py-12 sm:px-8 lg:px-10 lg:py-18">
           <div className="mx-auto grid max-w-[90rem] gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-stretch">
             <div className="flex flex-col justify-center py-5 lg:py-8">
@@ -33,11 +33,11 @@ export default function AboutPage() {
                 <span className="block text-[#318248]">you need the course details.</span>
               </h1>
               <p className="mt-6 max-w-xl text-base leading-8 text-[#48604f]">
-                Find the fixed class meetings, assessment weights, six Gate submissions and the two written reports here. Moodle contains the confirmed deadlines, rubrics and submission links.
+                Find class meetings, location and course context here. Visit Assessment for weights and reports; Moodle holds the confirmed deadlines, rubrics and submission links.
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
                 <a href="#meetings" className="inline-flex items-center gap-2 rounded-full bg-[#173f28] px-5 py-3 text-sm font-bold text-white">Meeting schedule <ArrowIcon /></a>
-                <a href="#assessment" className="inline-flex items-center gap-2 rounded-full border border-[#a9c0ae] bg-white px-5 py-3 text-sm font-bold text-[#214b31]">Assessment overview <ArrowIcon /></a>
+                <Link href="/assessment" className="inline-flex items-center gap-2 rounded-full border border-[#a9c0ae] bg-white px-5 py-3 text-sm font-bold text-[#214b31]">Assessment overview <ArrowIcon /></Link>
               </div>
             </div>
 
@@ -62,16 +62,17 @@ export default function AboutPage() {
         </section>
 
         <SemesterMeetings />
-        <AssessmentInformation />
+        <section id="assessment" className="scroll-mt-24 mx-auto max-w-[90rem] px-5 py-10 sm:px-8 lg:px-10"><h2 className="text-2xl font-semibold">Assessment has its own page</h2><Link href="/assessment" className="mt-4 inline-block font-bold text-[#226439]">View assessment weights, Checkpoints and reports →</Link></section>
+        <div id="reports" className="mx-auto max-w-[90rem] px-5 pb-10 sm:px-8 lg:px-10"><Link href="/assessment#reports" className="font-bold text-[#226439]">Go to written report requirements →</Link></div>
 
         <section className="bg-[#153f27] px-5 py-14 text-white sm:px-8 lg:px-10">
           <div className="mx-auto flex max-w-[90rem] flex-col gap-7 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-3xl">
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#b9d8bf]">Where to go next</p>
-              <h2 className="mt-3 text-3xl font-semibold tracking-[-0.035em]">Use the Project Journey for methods and the Student Guide for detailed working materials.</h2>
+              <h2 className="mt-3 text-3xl font-semibold tracking-[-0.035em]">Use Develop for methods and the Student Guide for detailed working materials.</h2>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Link href="/engg2202" className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-bold text-[#173b25]">Project Journey <ArrowIcon /></Link>
+              <Link href="/engg2202" className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-bold text-[#173b25]">Develop <ArrowIcon /></Link>
               <Link href="/guide" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/35 px-5 py-3 text-sm font-bold text-white">Student Guide <ArrowIcon /></Link>
             </div>
           </div>

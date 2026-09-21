@@ -1,23 +1,23 @@
 import Link from "next/link";
 
 const meetingDates = [
-  ["01 SEP", "Course launch", "Meet the project journey and begin Gate 01."],
+  ["01 SEP", "Course launch", "Meet the course and begin exploring a project."],
   ["08 SEP", "Direction studio", "Explore Green Technology contexts and possible project directions."],
-  ["22 SEP", "Gate 01 review", "Review the challenge focus and the evidence behind it."],
-  ["06 OCT", "Gate 02 review", "Test whether the problem is specific, observable and worth solving."],
+  ["22 SEP", "Checkpoint 01 review", "Review the challenge focus and the evidence behind it."],
+  ["06 OCT", "Checkpoint 02 review", "Test whether the problem is specific, observable and worth solving."],
   ["27 OCT", "Concept studio", "Compare possible approaches and develop a feasible direction."],
-  ["10 NOV", "Approval-pack clinic", "Check the system design, budget, risks and build plan."],
-  ["24 NOV", "Gate 03 review", "Present the Project Approval Pack and establish build readiness."],
+  ["10 NOV", "Design and planning clinic", "Check the system design, budget, risks and build plan."],
+  ["24 NOV", "Checkpoint 03 review", "Review the Project Development Plan, work completed and next experiments."],
 ];
 
 const assessmentComponents = [
   {
     number: "01",
-    title: "Project Progress & Gate Checkpoints",
+    title: "Project Progress & Checkpoints",
     weight: "24%",
     mode: "Individual",
     colour: "#4f925f",
-    copy: "Six reviews across the year. Each Gate is worth 4% and records your contribution to the next project decision.",
+    copy: "Six reviews across the year. Each Checkpoint is worth 4% and records your contribution to the next project decision.",
   },
   {
     number: "02",
@@ -25,7 +25,7 @@ const assessmentComponents = [
     weight: "46%",
     mode: "Individual",
     colour: "#d7f43c",
-    copy: "Two reports turn the project record into a clear engineering argument: 18% after Gate 03 and 28% at the end of the project.",
+    copy: "Two reports turn the project record into a clear engineering argument: 18% after Checkpoint 03 and 28% at the end of the project.",
   },
   {
     number: "03",
@@ -50,7 +50,7 @@ const reports = [
     term: "SEMESTER 1",
     weight: "18%",
     title: "Project Definition & Engineering Plan",
-    timing: "Due after Gate 03 · exact deadline on Moodle",
+    timing: "Due after Checkpoint 03 · exact deadline on Moodle",
     question: "Why are this problem, this direction and this implementation plan reasonable?",
     sections: [
       "Project context, stakeholder and evidence-based problem definition",
@@ -64,7 +64,7 @@ const reports = [
     term: "SEMESTER 2",
     weight: "28%",
     title: "Final Engineering Development Report",
-    timing: "Due after Gate 06 · exact deadline on Moodle",
+    timing: "Due after Checkpoint 06 · exact deadline on Moodle",
     question: "What did you build, what does the evidence show, and how did the project change because of it?",
     sections: [
       "Implementation and the engineering methods used",
@@ -107,7 +107,7 @@ export function SemesterMeetings() {
             <h2 className="mt-4 text-4xl font-semibold tracking-[-0.045em] text-[#143421] sm:text-5xl">Semester 1 meeting schedule.</h2>
           </div>
           <p className="max-w-2xl text-base leading-8 text-[#526858] lg:justify-self-end">
-            B1 and B2 meet together on the dates below for project decisions, Gate reviews and practical feedback.
+            B1 and B2 meet together on the dates below for project decisions, Checkpoint reviews and practical feedback.
           </p>
         </div>
 
@@ -143,7 +143,7 @@ export function SemesterMeetings() {
             <article className="rounded-[1.5rem] border border-dashed border-[#a9c0af] bg-[#f7faf6] p-6">
               <p className="text-xs font-bold uppercase tracking-[0.15em] text-[#718776]">Semester 2</p>
               <h3 className="mt-7 text-xl font-semibold text-[#173823]">Dates to be confirmed</h3>
-              <p className="mt-3 text-sm leading-7 text-[#526858]">The build, test, release and final demonstration schedule will be added when confirmed.</p>
+              <p className="mt-3 text-sm leading-7 text-[#526858]">Further progress reviews and the final demonstration schedule will be added when confirmed.</p>
             </article>
           </div>
         </div>
@@ -252,7 +252,7 @@ export function AssessmentInformation() {
             ))}
           </div>
           <div className="mt-5 rounded-[1.5rem] border border-[#cfded1] bg-white p-6 sm:flex sm:items-center sm:justify-between sm:gap-8">
-            <p className="max-w-4xl text-sm leading-7 text-[#526858]">The team uses the Gate 03 Project Approval Pack for its design review. The Semester 1 report is your individual explanation of why the project definition and plan make engineering sense.</p>
+            <p className="max-w-4xl text-sm leading-7 text-[#526858]">The team uses the Checkpoint 03 Project Development Plan for its design review. The Semester 1 report is your individual explanation of why the project definition and plan make engineering sense.</p>
             <Link href="/guide" className="mt-5 inline-flex shrink-0 items-center gap-2 rounded-full bg-[#173f28] px-5 py-3 text-sm font-bold text-white sm:mt-0">Open Student Guide <ArrowIcon /></Link>
           </div>
         </div>

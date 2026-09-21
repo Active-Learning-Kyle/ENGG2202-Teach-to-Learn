@@ -1,28 +1,23 @@
-"use client";
-
-import { useEffect } from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import SiteShell from "../components/site-shell";
+import { AssessmentInformation } from "../about/course-information";
+
+export const metadata: Metadata = {
+  title: "Assessment",
+  description: "How ENGG2202 recognises engineering understanding, evidence, contribution and professional practice.",
+  alternates: { canonical: "https://active-learning-kyle.github.io/ENGG2202-Teach-to-Learn/assessment/" },
+};
 
 export default function AssessmentPage() {
-  const router = useRouter();
-
-  useEffect(() => {
-    router.replace("/about#assessment");
-  }, [router]);
-
-  return (
-    <SiteShell>
-      <main className="flex min-h-[70vh] items-center justify-center bg-[#eef6ec] px-5 py-16 text-center">
-        <div className="max-w-lg rounded-[2rem] border border-[#d4e1d6] bg-white p-8 shadow-[0_30px_80px_-58px_rgba(15,60,32,0.55)] sm:p-10">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#57745e]">Assessment has moved</p>
-          <h1 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-[#143421]">Opening the course information on the About page.</h1>
-          <Link href="/about#assessment" className="mt-7 inline-flex rounded-full bg-[#173f28] px-5 py-3 text-sm font-bold text-white">
-            Continue to assessment
-          </Link>
-        </div>
-      </main>
-    </SiteShell>
-  );
+  return <SiteShell><main id="main-content">
+    <section className="mx-auto max-w-[90rem] px-5 py-12 sm:px-8 lg:px-10">
+      <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#52765c]">Assessment</p>
+      <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">Make your engineering learning visible.</h1>
+      <p className="mt-5 max-w-3xl text-lg leading-8 text-[#526858]">Your starting point does not determine your grade. Show what you understand, the engineering value you add, and the evidence behind your decisions.</p>
+      <p className="mt-4 max-w-3xl text-sm leading-7 text-[#526858]">Checkpoints are progress reviews, not sequential permission gates. Use Moodle for confirmed deadlines, rubrics and submission links. The existing assessment weights are retained in this preview.</p>
+      <Link href="/engg2202" className="mt-5 inline-block font-bold text-[#226439]">See what to bring to progress reviews →</Link>
+    </section>
+    <AssessmentInformation />
+  </main></SiteShell>;
 }

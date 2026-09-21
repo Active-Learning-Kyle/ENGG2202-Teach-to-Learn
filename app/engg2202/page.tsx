@@ -7,7 +7,7 @@ import StageArtwork from "../components/stage-artwork";
 import { imagePath } from "../lib/image-path";
 
 export const metadata: Metadata = {
-  title: "Project Journey",
+  title: "Develop",
   description:
     "The six-stage ENGG2202 project journey from challenge focus to a responsible, reusable contribution.",
   alternates: { canonical: "https://active-learning-kyle.github.io/ENGG2202-Teach-to-Learn/engg2202/" },
@@ -167,7 +167,7 @@ function EvidenceLoop() {
             what you do next. Transfer happens when your team can use that
             lesson in a new context.
           </p>
-          <p className="mt-4 text-sm font-semibold leading-6 text-[#b9d9bf]">Use this rhythm within all six Gates.</p>
+          <p className="mt-4 text-sm font-semibold leading-6 text-[#b9d9bf]">Use this rhythm within all six Checkpoints.</p>
         </div>
 
         <div className="evidence-loop-stage relative mx-auto aspect-square w-full max-w-[30rem]" role="img" aria-label="Active-learning loop: act, keep evidence, get feedback, revise and transfer">
@@ -224,21 +224,21 @@ function EvidenceLoop() {
 export default function ProjectJourneyPage() {
   return (
     <SiteShell>
-      <main>
+      <main id="main-content">
         <section className="border-b border-[#d7e5d9] bg-[#eef6ec]">
           <div className="mx-auto grid max-w-[90rem] gap-10 px-5 py-20 sm:px-8 lg:grid-cols-[0.86fr_1.14fr] lg:items-end lg:px-10 lg:py-28">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4d7459]">ENGG2202 Project Journey</p>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4d7459]">ENGG2202 Develop</p>
               <h1 className="mt-5 text-5xl font-semibold leading-[0.98] tracking-[-0.05em] text-[#11301d] sm:text-6xl lg:text-7xl">
-                Six decisions.
+                Develop your project.
                 <span className="block text-[#32844a]">One evolving project.</span>
               </h1>
             </div>
             <div className="max-w-2xl lg:justify-self-end">
               <p className="text-lg leading-9 text-[#465f4d]">
-                Each Gate ends with an engineering decision. Use the available
-                evidence to move forward, or return to an earlier Gate when an
-                assumption no longer holds.
+                Checkpoints are progress reviews, not sequential permission gates.
+                Bring evidence, decisions, uncertainties and your next action.
+                Build and investigate in parallel; revisit any question when the evidence changes.
               </p>
               <div className="mt-7">
                 <Link href="/guide" className="inline-flex items-center justify-center gap-2 rounded-full bg-[#173f28] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#245d38]">
@@ -266,7 +266,7 @@ export default function ProjectJourneyPage() {
                     <div className="relative flex flex-1 flex-col p-7 sm:p-9">
                       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.16),transparent_52%)]" />
                       <div className="relative">
-                        <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/72">Gate {stage.number}</p>
+                        <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/72">Checkpoint {stage.number}</p>
                         <p className="mt-5 text-5xl font-semibold tracking-[-0.05em]">{stage.verb}</p>
                         <h2 className="mt-3 text-xl font-semibold text-white/92">{stage.title}</h2>
                         <p className="mt-6 border-t border-white/25 pt-5 text-base leading-7 text-white/88">{stage.question}</p>
@@ -317,7 +317,7 @@ export default function ProjectJourneyPage() {
           <section className="mt-16 rounded-[2.2rem] border border-[#d1dfd3] bg-[#eef6ec] p-7 sm:p-9 lg:p-11">
             <div className="grid gap-7 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#57745e]">Gate 06 · output menu</p>
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#57745e]">Checkpoint 06 · output menu</p>
                 <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-[#143421]">Different forms. The same evidence standard.</h2>
               </div>
               <p className="max-w-2xl text-sm leading-7 text-[#506656] lg:justify-self-end">
@@ -351,7 +351,7 @@ export default function ProjectJourneyPage() {
         <section className="bg-[#173f28] px-5 py-16 text-white sm:px-8 lg:px-10">
           <div className="mx-auto flex max-w-[90rem] flex-col gap-7 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-3xl">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#bad7c0]">A working guide for every Gate</p>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#bad7c0]">A working guide for every Checkpoint</p>
               <h2 className="mt-3 text-3xl font-semibold tracking-[-0.035em] sm:text-4xl">Notion contains the detailed tasks, templates, resources and checkpoint instructions.</h2>
             </div>
             <a href={notionGuideUrl} target="_blank" rel="noopener noreferrer" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#d7f43c] px-6 py-3.5 text-sm font-bold text-[#17351f] transition hover:bg-[#e8fa7e]">

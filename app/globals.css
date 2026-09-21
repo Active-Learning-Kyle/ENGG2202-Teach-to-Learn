@@ -383,3 +383,6 @@ html {
     margin: 10mm;
   }
 }
+
+/* Consistent keyboard navigation across the preview. */
+a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible { outline: 3px solid #4f925f; outline-offset: 4px; }

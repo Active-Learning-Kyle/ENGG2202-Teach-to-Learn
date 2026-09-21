@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import CourseMap from "./components/course-map";
 import SiteShell from "./components/site-shell";
 import StageArtwork from "./components/stage-artwork";
 import { imagePath } from "./lib/image-path";
@@ -95,7 +96,7 @@ export default function Home() {
 
   return (
     <SiteShell>
-      <main>
+      <main id="main-content">
         <section className="relative overflow-hidden bg-[#0d2f1c] text-white">
           {heroImages.map((source, index) => (
             <Image
@@ -136,8 +137,8 @@ export default function Home() {
               </p>
 
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <Link href="/engg2202" className="inline-flex items-center justify-center gap-2 rounded-full bg-[#d7f43c] px-6 py-3.5 text-sm font-bold text-[#112d1c] transition hover:-translate-y-0.5 hover:bg-[#e6fa72]">
-                  Start the project journey
+                <Link href="/start" className="inline-flex items-center justify-center gap-2 rounded-full bg-[#d7f43c] px-6 py-3.5 text-sm font-bold text-[#112d1c] transition hover:-translate-y-0.5 hover:bg-[#e6fa72]">
+                  Start a Project
                   <ArrowIcon />
                 </Link>
                 <Link href="/gallery" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/40 bg-white/8 px-6 py-3.5 text-sm font-bold text-white backdrop-blur-sm transition hover:-translate-y-0.5 hover:bg-white/15">
@@ -148,6 +149,8 @@ export default function Home() {
             </div>
           </motion.div>
         </section>
+
+        <CourseMap />
 
         <section className="overflow-hidden border-b border-[#d7e4d9] bg-white py-14 sm:py-18">
           <div className="mx-auto max-w-[90rem] px-5 sm:px-8 lg:px-10">
@@ -193,18 +196,18 @@ export default function Home() {
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4d7459]">One project · six decisions</p>
               <h2 className="mt-4 text-4xl font-semibold leading-tight tracking-[-0.035em] text-[#102d1b] sm:text-5xl">
-                Use the six Gates to move the project forward.
+                Use Checkpoints to review progress.
                 <span className="block text-[#318248]">Your team decides how the project develops.</span>
               </h2>
             </div>
             <p className="max-w-2xl text-base leading-8 text-[#4a6452] lg:justify-self-end">
               Your team chooses the problem, technology and final contribution.
-              The six Gates mark the decisions needed to develop that work.
+              Checkpoints review your evidence, decisions and next actions. They are not sequential permission gates: build, investigate and revisit questions as your project needs.
             </p>
           </motion.div>
 
           <div className="relative mt-12 hidden aspect-[16/7.6] min-h-[42rem] overflow-hidden rounded-[2.2rem] border border-[#cfe0d2] bg-[#eaf3e8] shadow-[0_24px_70px_-48px_rgba(15,60,32,0.34)] lg:block">
-            <Image src={imagePath("/images/teach-to-learn/guide-country-path.webp")} alt="A countryside route connecting the six ENGG2202 project Gates" fill sizes="1440px" className="object-cover" />
+            <Image src={imagePath("/images/teach-to-learn/guide-country-path.webp")} alt="A countryside route connecting the six ENGG2202 project Checkpoints" fill sizes="1440px" className="object-cover" />
             <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(8,36,20,0.12),transparent_55%)]" />
             {stages.map((stage) => (
               <Link
@@ -225,7 +228,7 @@ export default function Home() {
 
           <div className="mt-10 lg:hidden">
             <div className="relative aspect-[4/3] overflow-hidden rounded-[1.6rem] border border-[#cfe0d2]">
-              <Image src={imagePath("/images/teach-to-learn/guide-country-path.webp")} alt="The six-Gate project route" fill sizes="100vw" className="object-cover" />
+              <Image src={imagePath("/images/teach-to-learn/guide-country-path.webp")} alt="The six-Checkpoint project route" fill sizes="100vw" className="object-cover" />
             </div>
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
               {stages.map((stage) => (
