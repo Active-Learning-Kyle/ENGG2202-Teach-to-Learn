@@ -8,10 +8,11 @@ import { imagePath } from "../lib/image-path";
 
 const navigation = [
   { label: "Home", href: "/" },
-  { label: "Project Journey", href: "/engg2202" },
+  { label: "Start a Project", href: "/start" },
+  { label: "Develop", href: "/engg2202" },
   { label: "Green Technology", href: "/sdgs" },
-  { label: "Student Projects", href: "/gallery" },
-  { label: "Student Guide", href: "/guide" },
+  { label: "Projects", href: "/gallery" },
+  { label: "Assessment", href: "/assessment" },
   { label: "About", href: "/about" },
 ];
 
